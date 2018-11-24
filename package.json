@@ -2,9 +2,12 @@
     "name": "translate",
     "displayName": "translate",
     "description": "翻译工具",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "publisher": "luokai",
-    "keywords": ["translate", "翻译"],
+    "keywords": [
+        "translate",
+        "翻译"
+    ],
     "engines": {
         "vscode": "^1.29.0"
     },
