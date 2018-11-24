@@ -17,6 +17,7 @@
     "activationEvents": [
         "onCommand:extension.translate"
     ],
+    "icon": "./icon.png",
     "main": "./out/extension",
     "contributes": {
         "commands": [
