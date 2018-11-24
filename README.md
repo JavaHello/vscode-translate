@@ -9,3 +9,6 @@
   // 有道翻译appSecret
   "translate.youdao.appSecret": ""
 ```
+
+# 使用
+选择需要翻译的文本按下`Ctrl + 6`，即可
