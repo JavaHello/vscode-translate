@@ -2,7 +2,7 @@
     "name": "translate",
     "displayName": "translate",
     "description": "翻译工具",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.29.0"
     },
@@ -20,12 +20,14 @@
                 "title": "translate"
             }
         ],
-        "keybindings": [{
-            "command": "extension.translate",
-            "key": "Ctrl+6",
-            "mac": "Ctrl+6",
-            "when": "editorTextFocus"
-        }],
+        "keybindings": [
+            {
+                "command": "extension.translate",
+                "key": "Ctrl+6",
+                "mac": "Ctrl+6",
+                "when": "editorTextFocus"
+            }
+        ],
         "configuration": {
             "type": "object",
             "title": "translate configuration",
