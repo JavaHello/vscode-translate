@@ -10,5 +10,7 @@
 
 # 使用
 选择需要翻译的文本按下`Ctrl + 6`，即可
+
 ![选择文本](images/select.png)
+
 ![选择文本](images/output.png)
