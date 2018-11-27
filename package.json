@@ -74,5 +74,8 @@
         "type": "git",
         "url": "https://github.com/JavaHello/vscode-translate"
     },
-    "homepage": "https://github.com/JavaHello/vscode-translate/blob/master/README.md"
+    "homepage": "https://github.com/JavaHello/vscode-translate/blob/master/README.md",
+    "dependencies": {
+        "event-stream": "^3.3.4"
+    }
 }
