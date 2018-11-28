@@ -152,6 +152,7 @@ export class Translate {
                         for (let v in parsedData.web) {
                             showMsg += "\n    " + parsedData.web[v].key + ": " + parsedData.web[v].value;
                         }
+                        this.out.clear();
                         this.out.appendLine(showMsg);
                         
                         // vscode.window.showInformationMessage(showMsg)
