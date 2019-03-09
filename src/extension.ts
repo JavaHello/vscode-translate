@@ -21,9 +21,9 @@ export function activate(context: vscode.ExtensionContext) {
 
         // Display a message box to the user
         if(!out) {
-            vscode.window.createOutputChannel("翻译");
+            out = vscode.window.createOutputChannel("翻译");
+            out.show();
         }
-        out.show();
         new Translate(out).translate();
     });
 
