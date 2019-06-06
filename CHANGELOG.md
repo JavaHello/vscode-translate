@@ -1,7 +1,16 @@
 # Change Log
-All notable changes to the "translate" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+翻译插件重要的修改日志
 
 ## [Unreleased]
-- Initial release
+
+## [0.8.0] - 2018-11-24
+### Added
+- 首次发布可正常使用版本
+
+## [0.9.0] - 2018-11-28
+### Changed
+- 清除控制台显示之前翻译记录
+
+## [2.1.0] - 2019-03-09
+### Changed
+- 翻译窗口不强制获取焦点
