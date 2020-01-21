@@ -7,29 +7,29 @@ import * as querystring from 'querystring';
 
 class TextFilter {
 
-	public static  COMPILE:RegExp = /[A-Z]{1}[a-z]+/g;
-	public static  COMPILE_CHAR:RegExp = /[-_\n\r\t*]/g;
-	public static  COMPILE_SPAN:RegExp = /[\ ]+/g;
-	
-	public static filter(q:string):string {
-		q = q.replace(TextFilter.COMPILE, (e) => {
+    public static COMPILE: RegExp = /[A-Z]{1}[a-z]+/g;
+    public static COMPILE_CHAR: RegExp = /[-_\n\r\t*]/g;
+    public static COMPILE_SPAN: RegExp = /[\ ]+/g;
+
+    public static filter(q: string): string {
+        q = q.replace(TextFilter.COMPILE, (e) => {
             return ' ' + e;
         });
-		q = q.replace(TextFilter.COMPILE_CHAR, ' ');
+        q = q.replace(TextFilter.COMPILE_CHAR, ' ');
         q = q.replace(TextFilter.COMPILE_SPAN, ' ');
-		return q;
-	}
+        return q;
+    }
 }
 
 export class Translate {
 
     public static API_URL = 'http://openapi.youdao.com/api?';
-    public static r1:string = "";
-    out:vscode.OutputChannel;
-    appKey:string = '';
-    appSecret:string = '';
+    public static r1: string = "";
+    out: vscode.OutputChannel;
+    appKey: string = '';
+    appSecret: string = '';
 
-    constructor(out:vscode.OutputChannel) {
+    constructor(out: vscode.OutputChannel) {
         this.out = out;
     }
 
@@ -123,7 +123,7 @@ export class Translate {
             }
             if (error) {
                 console.error(error.message);
-                vscode.window.showInformationMessage(`错误: ${error.message}`);
+                vscode.window.showErrorMessage(`错误: ${error.message}`);
                 // 消耗响应数据以释放内存
                 res.resume();
                 return;
@@ -143,9 +143,9 @@ export class Translate {
                     if (parsedData.errorCode !== '0') {
                         let msg = Translate.ErrorCode[parsedData.errorCode];
                         parsedData.errorMsg = msg !== undefined ? msg : '';
-                        vscode.window.showInformationMessage(parsedData.errorMsg);
+                        vscode.window.showErrorMessage(parsedData.errorMsg);
                     } else {
-                        let showMsg:string = '';
+                        let showMsg: string = '';
                         showMsg += '原    文: ' + Translate.ReqData.q;
                         showMsg += '\n翻译结果: ' + parsedData.translation;
                         showMsg += "\n词    义: ";
@@ -154,17 +154,17 @@ export class Translate {
                         }
                         this.out.clear();
                         this.out.appendLine(showMsg);
-                        
+
                         // vscode.window.showInformationMessage(showMsg)
                     }
                 } catch (e) {
                     console.error(e.message);
-                    vscode.window.showInformationMessage(e.message);
+                    vscode.window.showErrorMessage(e.message);
                 }
             });
         }).on('error', (e) => {
             console.error(`错误: ${e.message}`);
-            vscode.window.showInformationMessage(`错误: ${e.message}`);
+            vscode.window.showErrorMessage(`错误: ${e.message}`);
         });
     }
 
@@ -177,16 +177,16 @@ export class Translate {
         //let settings = vscode.workspace.getConfiguration('cpplint');
         this.appSecret = settings.get('translate.youdao.appSecret', '');
         this.appKey = settings.get('translate.youdao.appKey', '');
-        if(this.appSecret && this.appKey) {
+        if (this.appSecret && this.appKey) {
             let selection = editor.selection;
             let content = editor.document.getText(selection);
-            if(content) {
+            if (content) {
                 this.fy(content);
             }
         } else {
             vscode.window.showErrorMessage("需要配置有道翻译 appKey 和 appSecret !");
         }
-        
+
     }
 }
 
